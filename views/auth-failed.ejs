@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Authentication Failed</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Authentication Failed</h1>
+    <button class="button" onclick="redirect()">Try again</button>
+  </div>
+  
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+
+  <script>
+    function redirect() {
+      var url = 'http://localhost:2999/';
+
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
