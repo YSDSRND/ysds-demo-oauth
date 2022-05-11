@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Home</title>
+</head>
+<body>
+  <div class="container">
+    <h1>YSDS OAuth Demo</h1>
+    <p class="info-text">Use port 2999 locally to avoid contacting YSDS for client registration during development</p>
+    <button onclick="authenticate()" class="button">Sign In with YSDS</button>
+  </div>
+
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+  <script>
+    console.log(uri);
+    function authenticate() {
+      var url = `http://localhost:3002/authorize?client_id=TEST_CLIENT&redirect_uri=http://localhost:2999/cb&response_type=code`;
+
+      var windowRef = window.open(url, '_blank', 'width=400,height=500');
+    }
+  </script>
+</body>
+</html>
