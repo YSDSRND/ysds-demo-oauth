@@ -33,10 +33,8 @@ app.get('/cb', (req: Request, res: Response) => {
     return;
   }
 
+  // Authenticate with OAuth
   axios.post(`${OAUTH_SERVICE_URL}/oauth/token?code=${code}&grant_type=code&redirect_uri=${OAUTH_REDIRECT_URI}&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_SECRET}`).then(response => {
-    console.log(response.data);
-
-    //res.send(response.data);
     res.render('signed-in', {
       data: JSON.stringify(response.data, null, "\t")
     });
@@ -44,12 +42,7 @@ app.get('/cb', (req: Request, res: Response) => {
     console.log(error.response);
     
     res.render('auth-failed');
-  });
-
-
-  // Authenticate with code
-
-  
+  });  
 });
 
 app.listen(port, () => {
