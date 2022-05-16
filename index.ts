@@ -12,7 +12,7 @@ const port = process.env.PORT || 2999;
 const OAUTH_CLIENT_ID = 'TEST_CLIENT'
 const OAUTH_SECRET = 'SecreT'
 const OAUTH_REDIRECT_URI = 'http://localhost:2999/cb'
-const OAUTH_SERVICE_URL = 'https:/auth.cloud.ysds.com' 
+const OAUTH_SERVICE_URL = 'https://ext-api.ysds.dev/auth' // https://ext-api.ysds.com/auth for production usage
 
 app.set('view engine', 'ejs');
 
