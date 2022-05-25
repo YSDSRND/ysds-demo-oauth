@@ -12,7 +12,7 @@ const port = process.env.PORT || 2999;
 const OAUTH_CLIENT_ID = 'TEST_CLIENT'
 const OAUTH_SECRET = 'SecreT'
 const OAUTH_REDIRECT_URI = 'http://localhost:2999/cb'
-const OAUTH_SERVICE_URL = 'https://ext-api.ysds.dev/auth' // https://ext-api.ysds.com/auth for production usage
+const OAUTH_SERVICE_URL = 'https://ext-api.ysds.com/v0/auth' // https://ext-api.ysds.com/auth for production usage
 
 app.set('view engine', 'ejs');
 
@@ -34,7 +34,7 @@ app.get('/cb', (req: Request, res: Response) => {
   }
 
   // Authenticate with OAuth
-  axios.post(`${OAUTH_SERVICE_URL}/oauth/token?code=${code}&grant_type=code&redirect_uri=${OAUTH_REDIRECT_URI}&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_SECRET}`).then(response => {
+  axios.post(`${OAUTH_SERVICE_URL}/token?code=${code}&grant_type=code&redirect_uri=${OAUTH_REDIRECT_URI}&client_id=${OAUTH_CLIENT_ID}&client_secret=${OAUTH_SECRET}`).then(response => {
     res.render('signed-in', {
       data: JSON.stringify(response.data, null, "\t")
     });

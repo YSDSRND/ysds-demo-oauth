@@ -17,7 +17,7 @@
   <script>
     console.log(uri);
     function authenticate() {
-      var url = `http://oauth.cloud.ysds.com/authorize?client_id=TEST_CLIENT&redirect_uri=http://localhost:2999/cb&response_type=code`;
+      var url = `https://oauth.cloud.ysds.com/authorize?client_id=TEST_CLIENT&redirect_uri=http://localhost:2999/cb&response_type=code`;
 
       var windowRef = window.open(url, '_blank', 'width=400,height=500');
     }
